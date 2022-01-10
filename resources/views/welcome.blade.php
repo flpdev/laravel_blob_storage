@@ -14,8 +14,27 @@
         <button type="submit" style="margin-top:5px">Enviar</button>
     </form>
 
+    <table>
+        <tr>
+            <td>Arquivo</td>
+            <td>Ação</td>
+        </tr>
+        @foreach($files as $row)
+        <tr>
+            <td>
+                {{$row}}
+            </td>
+            <td>
+
+                <a href="{{route('download', base64_encode($row))}}">Download</a>
+            </td>
+        </tr>
+            @endforeach
+    </table>
+
     @if(session('success'))
         <h4>{{session('sucess')}}</h4>
     @endif
+
 </body>
 </html>
